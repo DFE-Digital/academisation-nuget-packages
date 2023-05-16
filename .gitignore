@@ -398,8 +398,12 @@ FodyWeavers.xsd
 *.sln.iml
 riderModule.iml
 /_ReSharper.Caches/
+.idea
+dotSettings.user
 
 # Folders
-bin/
+**/bin/
 obj/
 /packages/
+**/.vs/
+**/.idea/
