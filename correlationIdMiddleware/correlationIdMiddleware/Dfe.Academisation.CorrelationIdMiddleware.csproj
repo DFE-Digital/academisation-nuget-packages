@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Academisation Correlation Id Middleware</Title>
+        <Title>Dfe Academisation Correlation Id Middleware</Title>
         <Description>Asp.net middleware to read incoming request headers and set a correlationId which can then be used for logging and other requests/events.</Description>
     </PropertyGroup>
 
