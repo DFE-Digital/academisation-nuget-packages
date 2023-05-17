@@ -13,7 +13,7 @@
         <PackageTags>dfe;academisation;correlation;</PackageTags>
         <UserSecretsId>4ac4e7ef-aaff-48a4-9e4d-44371c231191</UserSecretsId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>$(VersionPrefix)-alpha</Version>
+        <Version>1.0.0-alpha</Version>
     </PropertyGroup>
 
     <ItemGroup>
