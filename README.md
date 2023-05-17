@@ -5,7 +5,29 @@ This repository is a mono-repo and contains a number of different nuget packages
 Each package folder contains it's own solution file and each package has it's own github workflows.
 See the readme files within each folder for details on the individual packages.
 
-## To Add new Nuget Packages
+For additional information about working with GitHub Packages and NuGet see
+[the official documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry)
+
+
+---
+
+## Using The Nuget Packages
+The NugetPackages provided by this repository are served under the DfE-Digital organisation.
+The be able to use these Nuget Packages (and others) you must configure your development machine to have a new NuGet Package Source.
+To do this, you must first create a PAT token that has at least read access for packages.
+
+> **NEVER commit your PAT token to GitHub or any other VCS !**
+
+Next add a package source to your NuGet configuration using the CLI.
+Use the following command, replacing `[USERNAME] with your GitHub username, and `[PAT-TOKEN] with the PAT token you just generated.
+
+`dotnet nuget add source --username "[USERNAME]" --password "[PAT-TOKEN]" --store-password-in-clear-text --name DfE "https://nuget.pkg.github.com/DFE-Digital/index.json"`
+
+> Alternatively you may add a package source directly in Visual Studio.Once you have generated a PAT token you can add a new NuGet Package Source to visual studio. You may be prompted to sign in, if you are then enter your GitHub username and instead of the password enter the PAT token you generated.
+
+---
+
+## Authoring new Nuget Packages
 
 * Create a sub-folder for your package and make sure that this folder contains all of the files your package needs (except for GitHub workflows files), and that you don't rely on any files outside of this folder to build the package.
 
@@ -39,7 +61,7 @@ See the readme files within each folder for details on the individual packages.
 
 * Create a new workflow file in the `.github/workflows` folder to build your nuget package and push it to GitHub. This workflow will be specifically for your packagage so name it appropriately, something like `[Your Package Name]-build-and-push-package.yml`.
 
-> An example workflow file has been provided to make it easier for you to integrate with GitHub actions. The example workflow will build your nuget packages in release mode and apply the package version from the C# project belonging to the package. You must make sure you maintain the version number of the package for everything to work correctly.
+    > An example workflow file has been provided to make it easier for you to integrate with GitHub actions. The example workflow will build your nuget packages in release mode and apply the package version from the C# project belonging to the package. You must make sure you maintain the version number of the package for everything to work correctly.
   
 * Use the `example-workflow.yml` file as a template to create your new work flow. Make sure that you replace all of the placeholders with information unique to your nuget package.
 The placeholder values are within square parenthesis (`[]`) for example `[NameOfYourPackage]`
