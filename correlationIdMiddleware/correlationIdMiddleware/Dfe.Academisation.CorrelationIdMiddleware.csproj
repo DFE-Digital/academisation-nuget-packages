@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -14,6 +14,7 @@
         <UserSecretsId>4ac4e7ef-aaff-48a4-9e4d-44371c231191</UserSecretsId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Version>1.0.0-alpha</Version>
+        <Authors>DFE-Digital</Authors>
     </PropertyGroup>
 
     <ItemGroup>
