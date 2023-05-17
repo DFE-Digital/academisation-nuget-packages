@@ -1,4 +1,4 @@
-name: Deploy to environment
+name: Package correlationIdMiddleware
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - develop
     paths:
       - 'correlationIdMiddleware/**'
-  release:
-    types: [published]             
+  # release:
+  #   types: [published]             
 
 env:
   DOCKER_IMAGE: amsd-app
