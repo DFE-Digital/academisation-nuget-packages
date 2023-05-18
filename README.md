@@ -1,4 +1,4 @@
-# academisation-nuget-packages
+# Academisation NuGet Packages
 
 This repository is a mono-repo and contains a number of different nuget packages used by the academisation process - A2B, Prepare Transfers and Prepare Conversions.
 
