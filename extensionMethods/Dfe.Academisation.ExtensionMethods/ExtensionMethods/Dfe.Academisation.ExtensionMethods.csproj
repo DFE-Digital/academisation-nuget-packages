@@ -1,9 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Title>Dfe Academisation Extension Methods</Title>
+		<Description>A set of extension methods for use throughout the DfE Academisation process.</Description>
+		<PackageProjectUrl>https://github.com/DFE-Digital/academisation-nuget-packages/tree/main/extensionMethods</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>dfe;academisation;extension methods;</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Version>1.0.0-alpha</Version>
+		<Authors>DFE-Digital</Authors>
+	</PropertyGroup>
 
 </Project>
