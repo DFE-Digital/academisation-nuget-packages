@@ -10,4 +10,4 @@ By packaging the extension methods we hope to make them useful to other develope
 
 1) Install the package.
 2) Import the Dfe.Academisation.Extension methods namespace wherever you need to use one of the extensions.
-3) Call the extension methods you need.
+3) Call the extension methods you need. 
