@@ -54,18 +54,8 @@ jobs:
       uses: actions/setup-dotnet@v1
     - name: Build
       run: dotnet build -c Release
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
     - name: Test
       run: dotnet test -c Release --no-build
-  package:
-    needs: test
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
     - name: Pack nugets
       run: dotnet pack -c Release --no-build --output .
     - name: Push to NuGet

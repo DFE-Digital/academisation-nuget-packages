@@ -54,53 +54,9 @@ jobs:
       uses: actions/setup-dotnet@v1
     - name: Build
       run: dotnet build -c Release
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
     - name: Test
       run: dotnet test -c Release --no-build
-  package:
-    needs: test
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
     - name: Pack nugets
       run: dotnet pack -c Release --no-build --output .
     - name: Push to NuGet
       run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/DFE-Digital/index.json
-
-  # create-tag:
-  #   name: Tag and release
-  #   needs: set-env
-  #   runs-on: ubuntu-22.04
-  #   runs-on: ubuntu-22.04
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         ref: ${{ github.ref }}
-
-  #     - name: Create tag
-  #       run: |
-  #         git tag ${{ needs.set-env.outputs.release }}
-  #         git push origin ${{ needs.set-env.outputs.release }}
-
-  #     - name: Create release
-  #       uses: "actions/github-script@v6"
-  #       with:
-  #         github-token: "${{ secrets.GITHUB_TOKEN }}"
-  #         script: |
-  #           try {
-  #             await github.rest.repos.createRelease({
-  #               draft: ${{ needs.set-env.outputs.environment == 'staging' }},
-  #               generate_release_notes: true,
-  #               name: "${{ needs.set-env.outputs.release }}",
-  #               owner: context.repo.owner,
-  #               prerelease: ${{ needs.set-env.outputs.environment == 'staging' }},
-  #               repo: context.repo.repo,
-  #               tag_name: "${{ needs.set-env.outputs.release }}",
-  #             });
-  #           } catch (error) {
-  #             core.setFailed(error.message);
-  #           }
