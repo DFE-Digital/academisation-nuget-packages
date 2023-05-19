@@ -45,17 +45,27 @@ jobs:
           echo "release=${RELEASE}" >> $GITHUB_OUTPUT
           echo "checked-out-sha=${CHECKED_OUT_SHA}" >> $GITHUB_OUTPUT  
   build:
+      runs-on: ubuntu-latest
+      timeout-minutes: 5
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+      - name: Build
+        run: dotnet build -c Release
+  test:
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v1
-    - name: Build
-      run: dotnet build -c Release
     - name: Test
       run: dotnet test -c Release --no-build
+  package:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
     - name: Pack nugets
       run: dotnet pack -c Release --no-build --output .
     - name: Push to NuGet
