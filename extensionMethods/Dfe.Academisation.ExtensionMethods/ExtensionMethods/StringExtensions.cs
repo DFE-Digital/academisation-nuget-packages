@@ -128,7 +128,7 @@ namespace Dfe.Academisation.ExtensionMethods
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private static string Squish(this string input)
+        public static string Squish(this string input)
         {
             return input.Replace(" ", "").ToLowerInvariant();
         }

@@ -11,7 +11,7 @@
 		<RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>dfe;academisation;extension methods;</PackageTags>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<Authors>DFE-Digital</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
