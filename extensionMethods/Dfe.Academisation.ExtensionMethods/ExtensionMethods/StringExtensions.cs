@@ -50,6 +50,22 @@ namespace Dfe.Academisation.ExtensionMethods
         }
 
         /// <summary>
+        /// Extension method that converts "Yes" and "No" strings to bool values.
+        /// "Yes" is converted to true and "No" is converted to false.
+        /// The comparison is case-insensitive.
+        /// If the input string does not match "Yes" or "No", an ArgumentException will be thrown.
+        /// </summary>
+        public static bool ToBool(this string str)
+        {
+            return str.ToLower() switch
+            {
+                "yes" => true,
+                "no" => false,
+                _ => throw new ArgumentException("The string must be either 'Yes' or 'No'.")
+            };
+        }
+
+        /// <summary>
         /// Returns true/false if the word is detected as being an acronym
         /// </summary>
         /// <param name="word"></param>

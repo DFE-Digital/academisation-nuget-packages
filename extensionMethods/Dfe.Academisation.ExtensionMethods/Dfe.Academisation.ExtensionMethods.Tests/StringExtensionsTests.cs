@@ -57,5 +57,43 @@ namespace Dfe.Academisation.ExtensionMethods.Tests
             // Assert
             result.Should().Be(expected);
         }
+        [Fact]
+        public void ToBool_Should_ReturnTrue_When_StringIsYes()
+        {
+            // Arrange
+            string yes = "Yes";
+
+            // Act
+            bool result = yes.ToBool();
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void ToBool_Should_ReturnFalse_When_StringIsNo()
+        {
+            // Arrange
+            string no = "No";
+
+            // Act
+            bool result = no.ToBool();
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void ToBool_Should_ThrowArgumentException_When_StringIsNotYesOrNo()
+        {
+            // Arrange
+            string notYesOrNo = "Maybe";
+
+            // Act
+            Action act = () => notYesOrNo.ToBool();
+
+            // Assert
+            act.Should().Throw<ArgumentException>().WithMessage("The string must be either 'Yes' or 'No'.");
+        }
     }
 }
