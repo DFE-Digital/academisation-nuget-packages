@@ -132,5 +132,17 @@ namespace Dfe.Academisation.ExtensionMethods
         {
             return input.Replace(" ", "").ToLowerInvariant();
         }
+
+
+        /// <summary>
+        /// Converts the first character of the string to uppercase, and returns the whole string
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>A string.</returns>
+        public static string ToFirstUpper(this string input)
+        {
+            string lowered = input.ToLower();
+            return $"{char.ToUpper(lowered[0])}{lowered[1..]}";
+        }
     }
 }
