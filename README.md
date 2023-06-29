@@ -1,11 +1,11 @@
-# Academisation NuGet Packages
+# Academisation Nuget Packages
 
-This repository is a mono-repo and contains a number of different nuget packages used by the academisation process - A2B, Prepare Transfers and Prepare Conversions.
+This repository is a mono-repo and contains a number of different Nuget packages used by the academisation process - A2B, Prepare Transfers and Prepare Conversions.
 
 Each package folder contains it's own solution file and each package has it's own github workflows.
 See the readme files within each folder for details on the individual packages.
 
-For additional information about working with GitHub Packages and NuGet see
+For additional information about working with GitHub Packages and Nuget see
 [the official documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry)
 
 For further information on generating a GitHub PAT Token and authenticating with the GitHub Nuget Registry see [https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry)
@@ -139,5 +139,8 @@ For more information, see this article [https://render.com/docs/docker-secrets](
 
     > An example workflow file has been provided to make it easier for you to integrate with GitHub actions. The example workflow will build your nuget packages in release mode and apply the package version from the C# project belonging to the package. You must make sure you maintain the version number of the package for everything to work correctly.
   
-* Use the `example-workflow.yml` file as a template to create your new work flow. Make sure that you replace all of the placeholders with information unique to your nuget package.
+* Use the `example-package-and-publish-workflow.yml` file as a template to create yourself new work flow that will package your project into Nuget package format and then publish it to the Nuget registry. 
+Make sure that you replace all of the placeholders with information unique to your Nuget package.
 The placeholder values are within square parenthesis (`[]`) for example `[NameOfYourPackage]
+
+* Use the `example-CI-workflow.yml` file as a template to create yourself a worklfow that will trigger building and running unit tests for your Nuget package. Make sure that you replace all of the placeholders with information unique to your Nuget package. The placeholder values are within square parenthesis (`[]`) for example `[NameOfYourPackage]

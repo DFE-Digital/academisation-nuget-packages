@@ -1,14 +1,16 @@
-﻿using System.ComponentModel;
+﻿namespace Dfe.Academisation.ExtensionMethods.Tests;
+using System.ComponentModel;
+/// <summary>
+/// The example enum.
+/// </summary>
 
-namespace Dfe.Academisation.ExtensionMethods.Tests
+public enum ExampleEnum
 {
-    public enum ExampleEnum
-    {
-        [Description("Regional Director for the region")] RegionalDirectorForRegion = 0,
-        [Description("A different Regional Director")] OtherRegionalDirector = 1,
-        [Description("Minister")] Minister = 2,
-        [Description("Director General")] DirectorGeneral = 3,
-        [Description("None")] None = 4,
-        Approved = 5,
-    }
+    [Description("Regional Director for the region")] DescriptionWithSpaces,
+    [Description("DescriptionWithOneWord")] DescriptionWithOneWord,
+    [Description("")] EmptyDescription,
+    [Description(" ")] WhiteSpaceDescription,
+    [Description(default)] NullDescription,
+    NoDescription,
+
 }

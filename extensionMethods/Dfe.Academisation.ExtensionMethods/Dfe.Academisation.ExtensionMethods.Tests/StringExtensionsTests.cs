@@ -1,11 +1,10 @@
 ﻿namespace Dfe.Academisation.ExtensionMethods.Tests;
 using FluentAssertions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// The string extensions tests.
+/// </summary>
 
 public class StringExtensionsTests
 {
@@ -22,6 +21,40 @@ public class StringExtensionsTests
     public void ToSentenceCase_WithLowerCase_ReturnsCorrectly()
     {
         LOWER_CASE.ToSentenceCase().Should().Be("This is lower case");
+    }
+
+    [Fact]
+    public void ToSentenceCase_WithAcronyms_When_IgnoreAcronyms_IsTrue_Returns_SentenceCase()
+    {
+        ACRONYM_SENTENCE.ToSentenceCase(ignoreAcronyms:true).Should().Be("DAO Is captured correctly with MAT in DfE");
+    }
+
+    [Fact]
+    public void ToSentenceCase_WithAcronyms_When_IgnoreAcronyms_IsFalse_Returns_SentenceCase()
+    {
+        ACRONYM_SENTENCE.ToSentenceCase(ignoreAcronyms: false).Should().Be("Dao is captured correctly with mat in dfe");
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData(default)]
+    [InlineData(" ")]
+    public void ToSentenceCase_When_String_IsNullOrWhitespace_Returns_EmptyString(string input)
+    {
+        input.ToSentenceCase().Should().Be(input);
+    }
+
+    [Fact]
+    public void All_Acronyms_When_IgnoreAcronyms_True_Returns_Original_String()
+    {
+        "DAO WTF LOL ROFL BRB".ToSentenceCase().Should().Be("DAO WTF LOL ROFL BRB");
+    }
+
+    [Fact]
+    public void All_Acronyms_When_IgnoreAcronyms_False_SentenceCases_The_Original_String()
+    {
+        "DAO WTF LOL ROFL BRB".ToSentenceCase(false)
+            .Should().Be("Dao wtf lol rofl brb");
     }
 
     [Theory]
@@ -102,5 +135,75 @@ public class StringExtensionsTests
 
         string result = input.ToFirstUpper();
         _ = result.Should().Be("This_is_a_test");
+    }
+
+    [Theory]
+    [InlineData(null, null)]
+    [InlineData("", "")]
+    [InlineData("All Title Case", "All Title Case")]
+    [InlineData("all lower case", "All Lower Case")]
+    [InlineData("ALL UPPER CASE", "All Upper Case")]
+    [InlineData("a title", "A Title")]
+    public void ToTitleCase_GivenString_ShouldConvert(string givenString, string expectedStringAsTitleCase)
+    {
+        var result = givenString?.ToTitleCase();
+        Assert.Equal(expectedStringAsTitleCase, result);
+    }
+
+    [Theory]
+    [InlineData("some text", "some-text")]
+    [InlineData("some    text", "some-text")]
+    [InlineData("some\ttext", "some-text")]
+    public void ToHyphenated_GivenString_ShouldConvert(string input, string expectedOutput)
+    {
+        var result = input.ToHyphenated();
+        Assert.Equal(expectedOutput, result);
+    }
+
+    [Fact]
+    public void RemoveNonAlphanumericOrWhiteSpace_Strips_UnwantedCharacters()
+    {
+        const string text = "some text-with-punctuation_and'numbers99][()";
+
+        var result = text.RemoveNonAlphanumericOrWhiteSpace();
+
+        Assert.Equal("some text-with-punctuation_andnumbers99", result);
+    }
+
+    [Theory]
+    [InlineData("GoverningBodyResolutiondde880c3-09bb-4940-83a2-e5591bf9a6bb", "Governing Body Resolutiondde880c3-09bb-4940-83a2-e5591bf9a6bb")]
+    [InlineData("Consultation4adf7b8f-aaea-41db-aacd-846396989519", "Consultation4adf7b8f-aaea-41db-aacd-846396989519")]
+    public void SplitPascalCase_Converts_String(string input, string expectation)
+    {
+        input.SplitPascalCase().Should().Be(expectation);
+    }
+
+    [Theory]
+    [InlineData("Sponsored conversion", "sponsoredconversion")]
+    [InlineData(" Voluntary conver sion ", "voluntaryconversion")]
+    [InlineData("Form a MAT", "formamat")]
+    public void SquishToLower_Removes_Spaces_And_Lowercases(string input, string expectation)
+    {
+        input.SquishToLower().Should().Be(expectation);
+    }
+
+    [Theory]
+    [InlineData("", true)]
+    [InlineData(default, true)]
+    [InlineData(" ", true)]
+    [InlineData("-", false)]
+    public void IsEmpty_Detects_IsNullOrWhitespace(string str, bool expectation)
+    {
+        str.IsEmpty().Should().Be(expectation);
+    }
+
+    [Theory]
+    [InlineData("", false)]
+    [InlineData(default, false)]
+    [InlineData(" ", false)]
+    [InlineData("-", true)]
+    public void IsPresent_Returns_Opposite_Of_IsEmpty(string str, bool expectation)
+    {
+        str.IsPresent().Should().Be(expectation);
     }
 }
