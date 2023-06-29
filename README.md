@@ -16,7 +16,7 @@ _If you are a windows user and are regularly prompted for GitHub credentials som
 ---
 
 ## Using The Nuget Packages From Your Development Machine
-The NugetPackages provided by this repository are served under the DfE-Digital organisation.
+The Nuget packages provided by this repository are served under the DfE-Digital organisation.
 The be able to use these Nuget Packages (and others) you must configure your development machine to have a new NuGet Package Source.
 To do this, you must first create a PAT token that has at least __read access for packages__.
 
