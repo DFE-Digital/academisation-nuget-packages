@@ -10,6 +10,10 @@ on:
     types: [opened, synchronize, reopened]
     paths:
         - 'extensionMethods/**'
+
+defaults:
+    run:
+        working-directory: extensionMethods          
 jobs:
   build:
     runs-on: ubuntu-latest
