@@ -1,8 +1,6 @@
-﻿using Ardalis.GuardClauses;
+﻿namespace Dfe.Academisation.CorrelationIdMiddleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-
-namespace Dfe.Academisation.CorrelationIdMiddleware;
 
 /// <summary>
 /// Middleware that checks incoming requests for a correlation and causation id header. If not found then default values will be created.
@@ -17,7 +15,7 @@ public class CorrelationIdMiddleware
     public CorrelationIdMiddleware(RequestDelegate next, ILogger<CorrelationIdMiddleware> logger)
     {
         _next = next;
-        _logger = Guard.Against.Null(logger);
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     // ReSharper disable once UnusedMember.Global
@@ -27,24 +25,27 @@ public class CorrelationIdMiddleware
         string thisCorrelationId;
 
         // correlation id. An ID that spans many requests
-        if (httpContext.Request.Headers.ContainsKey(correlationContext.HeaderKey) &&
-            !string.IsNullOrWhiteSpace(httpContext.Request.Headers[correlationContext.HeaderKey]))
+        if (httpContext.Request.Headers.ContainsKey(Keys.HeaderKey) &&
+            !string.IsNullOrWhiteSpace(httpContext.Request.Headers[Keys.HeaderKey]))
         {
-            thisCorrelationId = httpContext.Request.Headers[correlationContext.HeaderKey];
-            _logger.LogInformation("CorrelationId detected from header: {correlationId}", thisCorrelationId);
+            thisCorrelationId = httpContext.Request.Headers[Keys.HeaderKey];
+            _logger.LogInformation("CorrelationIdMiddleware:Invoke - x-correlationId detected in request headers: {correlationId}", thisCorrelationId);
         }
         else
         {
             thisCorrelationId = Guid.NewGuid().ToString();
-            _logger.LogInformation("CorrelationId not detected from headers. Generated a new one: {correlationId}",
+            _logger.LogInformation("CorrelationIdMiddleware:Invoke - x-correlationId not detected in request headers. Generated a new one: {correlationId}",
                 thisCorrelationId);
         }
 
-        httpContext.Request.Headers[correlationContext.HeaderKey] = thisCorrelationId;
+        httpContext.Request.Headers[Keys.HeaderKey] = thisCorrelationId;
 
         correlationContext.SetContext(thisCorrelationId);
 
-        httpContext.Response.Headers[correlationContext.HeaderKey] = thisCorrelationId;
-        return _next(httpContext);
+        httpContext.Response.Headers[Keys.HeaderKey] = thisCorrelationId;
+        using (_logger.BeginScope("x-correlationId {x-correlationId}", correlationContext.CorrelationId))
+        {
+            return _next(httpContext);
+        }
     }
 }
