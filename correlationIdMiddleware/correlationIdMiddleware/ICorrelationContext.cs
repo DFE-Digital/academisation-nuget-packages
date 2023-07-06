@@ -9,11 +9,11 @@ public interface ICorrelationContext
     /// <summary>
     /// Returns the current correlation id if it has been set
     /// </summary>
-    public string? CorrelationId { get; }
+    public Guid CorrelationId { get; }
     
     /// <summary>
     /// Used by the middleware to store the current correlation id. Do not call this method yourself.
     /// </summary>
     /// <param name="correlationId"></param>
-    public void SetContext(string correlationId);
+    public void SetContext(Guid correlationId);
 }

@@ -9,5 +9,5 @@ public class Keys
     /// The header key use to detect incoming correlation ids, and to send them in responses.
     /// Use this key if you are making subsequent requests so that correlation flows between services
     /// </summary>
-    public const string HeaderKey = "x-correlation-id";
+    public const string HeaderKey = "x-correlationId";
 }

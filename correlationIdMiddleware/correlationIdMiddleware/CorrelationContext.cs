@@ -4,14 +4,14 @@
 public class CorrelationContext : ICorrelationContext
 {
     /// <inheritdoc />
-    public string? CorrelationId { get; private set; }
+    public Guid CorrelationId { get; private set; }
 
     /// <inheritdoc />
-    public void SetContext(string correlationId)
+    public void SetContext(Guid correlationId)
     {
-        if (string.IsNullOrWhiteSpace(correlationId))
+        if (correlationId == Guid.Empty)
         {
-            throw new ArgumentNullException(nameof(correlationId));
+            throw new ArgumentException("Guid cannot be empty", nameof(correlationId));
         }
         this.CorrelationId = correlationId;
     }
