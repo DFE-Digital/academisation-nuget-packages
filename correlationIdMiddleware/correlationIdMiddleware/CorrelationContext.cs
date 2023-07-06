@@ -1,14 +1,18 @@
-﻿using Ardalis.GuardClauses;
+﻿namespace Dfe.Academisation.CorrelationIdMiddleware;
 
-namespace Dfe.Academisation.CorrelationIdMiddleware;
-
-public record CorrelationContext() : ICorrelationContext
+/// <inheritdoc />
+public class CorrelationContext : ICorrelationContext
 {
-    public string? CorrelationId { get; private set; }
-    public void SetContext(string correlationId)
-    {
-        this.CorrelationId = Guard.Against.NullOrWhiteSpace(correlationId);
-    }
+    /// <inheritdoc />
+    public Guid CorrelationId { get; private set; }
 
-    public string HeaderKey { get => "x-correlation-id"; }
+    /// <inheritdoc />
+    public void SetContext(Guid correlationId)
+    {
+        if (correlationId == Guid.Empty)
+        {
+            throw new ArgumentException("Guid cannot be empty", nameof(correlationId));
+        }
+        this.CorrelationId = correlationId;
+    }
 }
