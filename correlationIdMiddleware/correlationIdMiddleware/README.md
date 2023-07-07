@@ -20,6 +20,9 @@ CorrelationIds that are passed between services and recorded in all logs help to
 
 * Anywhere that you need access to the current correlation id, inject `ICorrelationContext` and access the current context using the `CorrelationId` property. It will return a `string?` that you can use in subsequent requests or wherever you need it.
 
+## Change Log
+See ReleaseNotes.md
+
 ---
 
 ## Default AspNet Logger
