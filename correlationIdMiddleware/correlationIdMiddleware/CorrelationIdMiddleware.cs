@@ -49,7 +49,7 @@ public class CorrelationIdMiddleware
         correlationContext.SetContext(thisCorrelationId);
 
         httpContext.Response.Headers[Keys.HeaderKey] = thisCorrelationId.ToString();
-        using (_logger.BeginScope("x-correlationId {x-correlationId}", correlationContext.CorrelationId.ToString()))
+        using (_logger.BeginScope("x-correlationId: {x-correlationId}", correlationContext.CorrelationId.ToString()))
         {
             return _next(httpContext);
         }
