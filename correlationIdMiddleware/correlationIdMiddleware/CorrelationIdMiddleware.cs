@@ -1,6 +1,8 @@
 ﻿namespace Dfe.Academisation.CorrelationIdMiddleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Net;
 
 /// <summary>
 /// Middleware that checks incoming requests for a correlation and causation id header. If not found then default values will be created.
@@ -43,6 +45,21 @@ public class CorrelationIdMiddleware
             thisCorrelationId = Guid.NewGuid();
             _logger.LogWarning("CorrelationIdMiddleware:Invoke - x-correlationId not detected in request headers. Generated a new one: {correlationId}", thisCorrelationId);
         }
+
+        if (thisCorrelationId == Guid.Empty)
+        {
+            var result = new
+            {
+                StatusCode = (int)HttpStatusCode.BadRequest,
+                Message = $"Bad Request. {Keys.HeaderKey} header cannot be an empty GUID"
+            };
+
+
+            httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            httpContext.Response.ContentType = "text/json";
+            return httpContext.Response.WriteAsync(result.ToString());
+        }
+
 
         httpContext.Request.Headers[Keys.HeaderKey] = thisCorrelationId.ToString();
 
