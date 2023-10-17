@@ -1,0 +1,62 @@
+name: Package academiesContracts
+
+on:
+  workflow_dispatch:  
+  push:
+    branches:
+      - main
+    paths:
+      - 'academiesContracts/**'
+  # release:
+  #   types: [published]             
+
+defaults:
+  run:
+    working-directory: academiesContracts
+  
+env:
+  DOCKER_IMAGE: amsd-app
+  NODE_VERSION: 16.x
+
+jobs:
+  set-env:
+    name: Determine environment
+    runs-on: ubuntu-22.04
+    outputs:
+      environment: ${{ steps.var.outputs.environment }}
+      branch: ${{ steps.var.outputs.branch }}
+      release: ${{ steps.var.outputs.release }}
+      checked-out-sha: ${{ steps.var.outputs.checked-out-sha }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - id: var
+        run: |
+          GIT_REF=${{ github.ref }}
+          GIT_BRANCH=${GIT_REF##*/}
+          INPUT=${{ github.event.inputs.environment }}
+          ENVIRONMENT=${INPUT:-"dev"}
+          RELEASE=${ENVIRONMENT,,}-`date +%Y-%m-%d`.${{ github.run_number }}
+          CHECKED_OUT_SHA="$(git log -1 '--format=format:%H')"
+          echo "environment=${ENVIRONMENT,,}" >> $GITHUB_OUTPUT
+          echo "branch=$GIT_BRANCH" >> $GITHUB_OUTPUT
+          echo "release=${RELEASE}" >> $GITHUB_OUTPUT
+          echo "checked-out-sha=${CHECKED_OUT_SHA}" >> $GITHUB_OUTPUT  
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+    - name: Build
+      run: dotnet build -c Release
+    - name: Test
+      run: dotnet test -c Release --no-build
+    - name: Pack nugets
+      run: dotnet pack -c Release --no-build --output .
+    - name: Push to NuGet
+      run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/DFE-Digital/index.json
