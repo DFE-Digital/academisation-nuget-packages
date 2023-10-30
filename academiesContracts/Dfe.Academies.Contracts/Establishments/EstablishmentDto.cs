@@ -17,6 +17,9 @@ public class EstablishmentDto
     public string SchoolCapacity { get; set; }
     public string Pfi { get; set; }
     public string EstablishmentNumber { get; set; }
+    public string Pan { get; set; }
+    public string Deficit { get; set; }
+    public string ViabilityIssue { get; set; }
     public NameAndCodeDto Diocese { get; set; }
     public NameAndCodeDto EstablishmentType { get; set; }
     public NameAndCodeDto Gor { get; set; }
