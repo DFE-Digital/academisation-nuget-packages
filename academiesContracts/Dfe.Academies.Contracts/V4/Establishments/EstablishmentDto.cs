@@ -1,6 +1,4 @@
-﻿namespace Dfe.Academies.Contracts.Establishments;
-
-using Dfe.Academies.Contracts.Trusts;
+﻿namespace Dfe.Academies.Contracts.V4.Establishments;
 
 [Serializable]
 public class EstablishmentDto
