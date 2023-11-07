@@ -1,6 +1,7 @@
 ﻿namespace Dfe.Academies.Contracts.V4;
 using System.Collections.Generic;
 
+[Serializable]
 public class PagedDataResponse<TResponse> where TResponse : class
 {
 
@@ -18,6 +19,8 @@ public class PagedDataResponse<TResponse> where TResponse : class
     public PagedDataResponse(TResponse data) => Data = new List<TResponse> { data };
 
 }
+
+[Serializable]
 public class PagingResponse
 {
     public int Page { get; set; }
