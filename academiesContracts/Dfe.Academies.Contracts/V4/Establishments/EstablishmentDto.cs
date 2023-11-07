@@ -1,5 +1,7 @@
 ﻿namespace Dfe.Academies.Contracts.Establishments;
 
+using Dfe.Academies.Contracts.Trusts;
+
 [Serializable]
 public class EstablishmentDto
 {
@@ -15,6 +17,9 @@ public class EstablishmentDto
     public string SchoolCapacity { get; set; }
     public string Pfi { get; set; }
     public string EstablishmentNumber { get; set; }
+    public string Pan { get; set; }
+    public string Deficit { get; set; }
+    public string ViabilityIssue { get; set; }
     public NameAndCodeDto Diocese { get; set; }
     public NameAndCodeDto EstablishmentType { get; set; }
     public NameAndCodeDto Gor { get; set; }
@@ -33,22 +38,6 @@ public class NameAndCodeDto
     public string Code { get; set; }
 }
 
-[Serializable]
-public class AddressDto
-{
-    public string Street { get; set; }
-
-    public string Town { get; set; }
-
-    public string County { get; set; }
-
-    public string Postcode { get; set; }
-
-    public string Locality { get; set; }
-
-    public string Additional { get; set; }
-
-}
 
 [Serializable]
 public class MisEstablishmentDto
