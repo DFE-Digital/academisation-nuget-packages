@@ -6,6 +6,7 @@ public class TrustDto
     public string Name { get; set; }
 
     public string Ukprn { get; set; }
+    public string Type { get; set; }
 
     public string CompaniesHouseNumber { get; set; }
 
