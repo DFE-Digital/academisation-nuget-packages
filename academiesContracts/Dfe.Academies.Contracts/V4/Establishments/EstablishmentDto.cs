@@ -4,6 +4,7 @@
 public class EstablishmentDto
 {
 
+    public string Ukprn { get; set; }
     public string Urn { get; set; }
     public string Name { get; set; }
     public string LocalAuthorityCode { get; set; }
@@ -18,6 +19,12 @@ public class EstablishmentDto
     public string Pan { get; set; }
     public string Deficit { get; set; }
     public string ViabilityIssue { get; set; }
+    public string GiasLastChangedDate { get; set; }
+    public string NoOfBoys { get; set; }
+    public string NoOfGirls { get; set; }
+    public string SenUnitCapacity { get; set; }
+    public string SenUnitOnRoll { get; set; }
+    public string ReligousEthos { get; set; }
     public NameAndCodeDto Diocese { get; set; }
     public NameAndCodeDto EstablishmentType { get; set; }
     public NameAndCodeDto Gor { get; set; }
@@ -59,4 +66,7 @@ public class CensusDto
 {
     public string NumberOfPupils { get; set; }
     public string PercentageFsm { get; set; }
+    public string PercentageFsmLastSixYears { get; set; }
+    public string PercentageEnglishAsSecondLanguage { get; set; }
+    public string PercentageSen { get; set; }
 }
