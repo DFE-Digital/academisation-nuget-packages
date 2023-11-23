@@ -26,10 +26,10 @@ public class EstablishmentDto
     public string SenUnitOnRoll { get; set; }
     public string ReligousEthos { get; set; }
 
-    public string HeadTitle { get; set; }
-    public string HeadFirstName { get; set; }
-    public string HeadLastName { get; set; }
-    public string HeadPreferredJobTitle { get; set; }
+    public string HeadteacherTitle { get; set; }
+    public string HeadteacherFirstName { get; set; }
+    public string HeadteacherLastName { get; set; }
+    public string HeadteacherPreferredJobTitle { get; set; }
 
     public NameAndCodeDto Diocese { get; set; }
     public NameAndCodeDto EstablishmentType { get; set; }
