@@ -11,7 +11,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-	<Version>1.0.7</Version>
+	<Version>1.0.8</Version>
 	<AssemblyVersion>1.0.4</AssemblyVersion>
 	<FileVersion>1.0.4</FileVersion>
   </PropertyGroup>
