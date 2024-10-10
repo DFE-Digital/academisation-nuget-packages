@@ -11,9 +11,10 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-	<Version>1.0.10</Version>
-	<AssemblyVersion>1.0.10</AssemblyVersion>
-	<FileVersion>1.0.10</FileVersion>
+	<Version>1.0.11</Version>
+	<AssemblyVersion>1.0.11</AssemblyVersion>
+	<FileVersion>1.0.11</FileVersion>
+	  <Description>This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Contracts instead.</Description>
   </PropertyGroup>
 	
   <ItemGroup>

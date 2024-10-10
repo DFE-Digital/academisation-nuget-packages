@@ -9,6 +9,9 @@ using System.Net;
 /// Saves these values in the correlationContext instance. Be sure to register correlation context as scoped or the equivalent in you ioc container.
 /// Header used in requests is 'x-correlationId'
 /// </summary>
+#pragma warning disable S1133
+[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.")]
+#pragma warning restore S1133
 public class CorrelationIdMiddleware
 {
     private readonly RequestDelegate _next;

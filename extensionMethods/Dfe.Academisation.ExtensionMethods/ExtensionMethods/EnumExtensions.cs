@@ -4,7 +4,9 @@ using System.Reflection;
 /// <summary>
 /// The enum extensions.
 /// </summary>
-
+#pragma warning disable S1133
+[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.")]
+#pragma warning restore S1133
 public static class EnumExtensions
 {
     /// <summary>

@@ -1,6 +1,9 @@
 ﻿namespace Dfe.Academies.Contracts.V4;
 using System.Collections.Generic;
 
+#pragma warning disable S1133
+[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.")]
+#pragma warning restore S1133
 [Serializable]
 public class PagedDataResponse<TResponse> where TResponse : class
 {

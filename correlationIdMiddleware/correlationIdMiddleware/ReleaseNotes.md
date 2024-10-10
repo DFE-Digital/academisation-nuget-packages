@@ -1,3 +1,7 @@
+# 2.0.3
+
+This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Http instead.
+
 # 2.0.2
 Fixed passing in an empty GUID in the x-correlationId header causing an exception. Now if an empty GUID is detected a bad request will be returned.
 If an empty guid is returned, the content of the response returned (along with the 400 status code) will be 

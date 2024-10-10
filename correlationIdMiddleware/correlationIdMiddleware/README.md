@@ -1,3 +1,8 @@
+# Deprecated
+
+This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Http instead.
+
+
 # Correlation ID Middleware
 
 ## What does this do ?
