@@ -5,7 +5,7 @@
 /// dependency in your IoC/DI container.
 /// </summary>
 #pragma warning disable S1133
-[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.")]
+[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Http instead.")]
 #pragma warning restore S1133
 public interface ICorrelationContext
 {

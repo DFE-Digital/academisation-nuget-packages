@@ -1,5 +1,6 @@
 # Repository and Packages Deprecated
 
+[!WARNING]
 This repository/package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.
 
 # Academisation Nuget Packages
