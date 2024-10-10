@@ -1,3 +1,8 @@
+# Repository and Packages Deprecated
+
+>[!WARNING]
+>This repository/package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs instead.
+
 # Academisation Nuget Packages
 
 This repository is a mono-repo and contains a number of different Nuget packages used by the academisation process - A2B, Prepare Transfers and Prepare Conversions.

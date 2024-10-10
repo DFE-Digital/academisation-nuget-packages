@@ -1,3 +1,7 @@
+# Deprecated
+
+This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Utilities instead.
+
 # Extension Methods
 
 ## What does this do ?

@@ -3,6 +3,9 @@ namespace Dfe.Academies.Contracts.V1.EducationalPerformance
     /// <summary>
     /// Absence Data Response 
     /// </summary>
+#pragma warning disable S1133
+    [Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Contracts instead.")]
+#pragma warning restore S1133
     public class SchoolAbsenceDataDto
     {
         /// <summary>

@@ -6,14 +6,14 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Title>Dfe Academisation Extension Methods</Title>
-		<Description>A set of extension methods for use throughout the DfE Academisation process.</Description>
 		<PackageProjectUrl>https://github.com/DFE-Digital/academisation-nuget-packages/tree/main/extensionMethods</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>dfe;academisation;extension methods;</PackageTags>
-		<Version>2.0.0</Version>
+		<Version>2.0.1</Version>
 		<Authors>DFE-Digital</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Utilities instead.</Description>
 	</PropertyGroup>
 
 	<ItemGroup>

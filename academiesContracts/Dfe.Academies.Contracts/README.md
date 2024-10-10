@@ -1,1 +1,1 @@
-﻿
+﻿This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Contracts instead.

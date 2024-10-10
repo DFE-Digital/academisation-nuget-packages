@@ -2,6 +2,9 @@
 
 using Dfe.Academies.Contracts.V4.Establishments;
 
+#pragma warning disable S1133
+[Obsolete("This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Contracts instead.")]
+#pragma warning restore S1133
 [Serializable]
 public class TrustDto
 {

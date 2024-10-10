@@ -1,3 +1,7 @@
+# 2.0.1
+
+This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Utilities instead.
+
 # 2.0.0
 Added an optional `ignoreAcronyms` argument to StringExtensions.ToSentenceCase. This defaults to true to that existing use is not impacted, but allows for the situations where you know that there are no acronyms in a string and allows them to have sentence casing applied if they are all uppercase.
 

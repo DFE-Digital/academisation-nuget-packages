@@ -6,16 +6,16 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Dfe Academisation Correlation Id Middleware</Title>
-        <Description>Asp.net middleware to read incoming request headers and set a correlationId which can then be used for logging and other requests/events.</Description>
         <PackageProjectUrl>https://github.com/DFE-Digital/academisation-nuget-packages/tree/main/correlationIdMiddleware</PackageProjectUrl>
         <RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>dfe;academisation;correlation;</PackageTags>
         <UserSecretsId>4ac4e7ef-aaff-48a4-9e4d-44371c231191</UserSecretsId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>2.0.2</Version>
+        <Version>2.0.3</Version>
         <Authors>DFE-Digital</Authors>
-    </PropertyGroup>
+	    <Description>This package is deprecated. Please use https://github.com/DFE-Digital/rsd-core-libs/pkgs/nuget/DfE.CoreLibs.Http instead.</Description>
+	</PropertyGroup>
 
     <ItemGroup>
       <None Include="..\README.md">
