@@ -6,7 +6,6 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Title>Dfe Academisation Extension Methods</Title>
-		<Description>A set of extension methods for use throughout the DfE Academisation process.</Description>
 		<PackageProjectUrl>https://github.com/DFE-Digital/academisation-nuget-packages/tree/main/extensionMethods</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/DFE-Digital/academisation-nuget-packages</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
